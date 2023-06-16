@@ -7,6 +7,14 @@ import dalleRoutes from "./routes/dalle.routes.js";
 dotenv.config();
 
 const app = express();
+const corsOpts = {
+  origin: "*",
+
+  methods: ["GET", "POST", "PUT", "DELETE"],
+
+  allowedHeaders: ["Content-Type"],
+};
+
 app.use(cors(corsOpts));
 app.use(express.json({ limig: "50mb" }));
 
