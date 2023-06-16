@@ -16,6 +16,11 @@ const corsOpts = {
 };
 
 app.use(cors(corsOpts));
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use(express.json({ limig: "50mb" }));
 
 app.use("/api/v1/dalle", dalleRoutes);
